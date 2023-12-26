@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OmetaETicaretAPI.Domain.Entities
 {
-	public class Customer
+	public class Customer : BaseEntity
 	{
 		public string Name { get; set; }
 

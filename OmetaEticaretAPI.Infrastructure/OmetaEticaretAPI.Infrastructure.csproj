@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\OmetaETicaretAPI.Application\OmetaETicaretAPI.Application.csproj" />
+  </ItemGroup>
+
 </Project>
