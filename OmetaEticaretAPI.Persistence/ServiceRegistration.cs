@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using OmetaEticaretAPI.Persistence.Contexts;
 using OmetaEticaretAPI.Persistence.Repositories;
@@ -17,8 +18,10 @@ namespace OmetaEticaretAPI.Persistence
 	{
 		public static void AddPersistenceServices(this IServiceCollection services)
 		{
-			services.AddDbContext<ECommerceAPIDbContext>(options => options.UseNpgsql("User ID=postgres;Password=12345;Host=localhost;Port=5432;Database=OmetaDB;Pooling=true" +
-				";Min Pool Size=0;Max Pool Size=100;Connection Lifetime=0;"));
+			
+
+
+			services.AddDbContext<ECommerceAPIDbContext>(options => options.UseNpgsql(Configuration.ConnectionString));
 
 			services.AddScoped<ICustomerWriteRepository, CustomerWriteRepository>();
 			services.AddScoped<ICustomerReadRepository, CustomerReadRepository>();

@@ -1,4 +1,5 @@
-﻿using OmetaETicaretAPI.Domain.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using OmetaETicaretAPI.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,12 +11,9 @@ namespace OmetaETicaretAPI.Application.Repositories
 {
 	public interface IRepository<T> where T : BaseEntity
 	{
-		IQueryable<T> GetAll();
-
-		IQueryable<T> GetWhere(Expression<Func<T, bool>> method);
-
-		Task<T> GetSingleAsync(Expression<Func<T, bool>> method);
-
-		Task<T> GetByIdAsync(string id);
+		public interface IRepository<T> where T : BaseEntity
+		{
+			DbSet<T> Table { get; }
+		}
 	}
 }
