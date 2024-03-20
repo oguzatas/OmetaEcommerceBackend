@@ -13,9 +13,9 @@ namespace OmetaEticaretAPI.Persistence
 		public List<Product> GetProducts()
 			=> new()
 			{
-				new() { Id=Guid.NewGuid(), Name="Salam", Price=100, Stock="25"},
-				new() { Id=Guid.NewGuid(), Name="Sucuk", Price=100, Stock="25"},
-				new() { Id=Guid.NewGuid(), Name="Erişte", Price=100, Stock="25"}
+				new() { Id=Guid.NewGuid(), Name="Salam", Price=100, Stock=25},
+				new() { Id=Guid.NewGuid(), Name="Sucuk", Price=100, Stock=25},
+				new() { Id=Guid.NewGuid(), Name="Erişte", Price=100, Stock=25}
 
 
 			};

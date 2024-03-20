@@ -1,12 +1,23 @@
+using FluentValidation.AspNetCore;
+using OmetaEticaretAPI.Infrastructure.Filters;
 using OmetaEticaretAPI.Persistence;
+using OmetaETicaretAPI.Application.Validations;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddPersistenceServices();
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddCors(options => options.AddDefaultPolicy(policy =>
+policy.AllowAnyHeader().AllowAnyMethod()));
+
+// fluentValidation+ deactivating the default filter 
+builder.Services.AddControllers(options => options.Filters.Add<ValidationFilter>())
+	.AddFluentValidation(configuration => 
+	configuration.RegisterValidatorsFromAssemblyContaining<CreateProductValidator>())
+	.ConfigureApiBehaviorOptions(options => options.SuppressModelStateInvalidFilter = true);
+
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -19,7 +30,7 @@ if (app.Environment.IsDevelopment())
 	app.UseSwagger();
 	app.UseSwaggerUI();
 }
-
+app.UseCors();
 app.UseHttpsRedirection();
 
 app.UseAuthorization();

@@ -28,7 +28,7 @@ namespace OmetaEticaretAPI.Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<DateTime>("ChangeTime")
+                    b.Property<DateTime>("ChangeDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<DateTime>("CreateDate")
@@ -53,7 +53,7 @@ namespace OmetaEticaretAPI.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<DateTime>("ChangeTime")
+                    b.Property<DateTime>("ChangeDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<DateTime>("CreateDate")
@@ -82,7 +82,7 @@ namespace OmetaEticaretAPI.Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<DateTime>("ChangeTime")
+                    b.Property<DateTime>("ChangeDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<DateTime>("CreateDate")
@@ -95,9 +95,8 @@ namespace OmetaEticaretAPI.Persistence.Migrations
                     b.Property<long>("Price")
                         .HasColumnType("bigint");
 
-                    b.Property<string>("Stock")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<int>("Stock")
+                        .HasColumnType("integer");
 
                     b.HasKey("Id");
 

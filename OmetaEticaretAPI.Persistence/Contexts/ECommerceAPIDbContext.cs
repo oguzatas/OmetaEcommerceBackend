@@ -27,11 +27,12 @@ namespace OmetaEticaretAPI.Persistence.Contexts
 
 			foreach (var data in datas)
 			{
-				_  = data.State switch
+				_ = data.State switch
 				{
 					EntityState.Added => data.Entity.CreateDate = DateTime.UtcNow,
-					EntityState.Modified => data.Entity.ChangeDate = DateTime.UtcNow
-				};
+					EntityState.Modified => data.Entity.ChangeDate = DateTime.UtcNow,
+					_ => DateTime.UtcNow
+				} ;
 			}
 			return await base.SaveChangesAsync(cancellationToken);
 		}

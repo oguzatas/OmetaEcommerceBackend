@@ -21,7 +21,7 @@ namespace OmetaEticaretAPI.Persistence
 			
 
 
-			services.AddDbContext<ECommerceAPIDbContext>(options => options.UseNpgsql(Configuration.ConnectionString));
+			services.AddDbContext<ECommerceAPIDbContext>(options => options.UseNpgsql("User ID=postgres;Password=12345;Host=localhost;Port=5432;Database=OmetaDB;Pooling=true;Connection Lifetime=0"));
 
 			services.AddScoped<ICustomerWriteRepository, CustomerWriteRepository>();
 			services.AddScoped<ICustomerReadRepository, CustomerReadRepository>();

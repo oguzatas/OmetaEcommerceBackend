@@ -1,0 +1,21 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace OmetaETicaretAPI.Application.ViewModels.Products
+{
+	public class VM_Create_Product
+	{
+		public string ProductName { get; set; }
+
+
+		public string ProductDescription { get; set; }
+
+		public int Stock { get; set; }
+
+        public int Price { get; set; }
+    }
+	
+}
