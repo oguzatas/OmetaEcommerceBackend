@@ -29,6 +29,7 @@ namespace OmetaEticaretAPI.Persistence
 			services.AddScoped<IOrderWriteRepository, OrderWriteRepository>();
 			services.AddScoped<IProductReadRepository, ProductReadRepository>();
 			services.AddScoped<IProductWriteRepository, ProductWriteRepository>();
+			services.AddScoped<IProductService, ProductService>();
 
 
 		}

@@ -18,12 +18,13 @@ namespace OmetaEticaretAPI.Controllers
 
 		private readonly IProductReadRepository _productReadRepository;
 		private readonly IProductWriteRepository _productWriteRepository;
-
-		public ProductsController(IProductService productService, IProductWriteRepository productWriteRepository, IProductReadRepository productReadRepository)
+		private readonly IWebHostEnvironment _webhostingEnvironment;
+		public ProductsController(IProductService productService, IProductWriteRepository productWriteRepository, IProductReadRepository productReadRepository, IWebHostEnvironment webhostingEnvironment)
 		{
 			_productService = productService;
 			_productReadRepository = productReadRepository;
 			_productWriteRepository = productWriteRepository;
+			_webhostingEnvironment = webhostingEnvironment;
 		}
 
 		[HttpGet]
@@ -75,11 +76,36 @@ namespace OmetaEticaretAPI.Controllers
 			return Ok();
 		}
 
-		[HttpDelete]
+		[HttpDelete("{id}")]
 		public async Task<IActionResult> Delete(string id)
 		{
 			await _productWriteRepository.RemoveAsync(id);
 			await _productWriteRepository.SaveAsync();
+			return Ok();
+		}
+
+		[HttpPost("Action")]
+
+		public async Task<IActionResult> Upload()
+		{
+			Random r = new();
+			string uploadPath = Path.Combine(_webhostingEnvironment.WebRootPath,"resource/product-images");
+			
+			if(Directory.Exists(uploadPath) == false)
+			{
+                Directory.CreateDirectory(uploadPath);
+            }
+			
+			foreach (IFormFile file in Request.Form.Files)
+			{
+                string fullPath = Path.Combine(uploadPath, $"{r.Next()}{Path.GetExtension(file.FileName)}");
+
+				using FileStream fileStream = new(fullPath, FileMode.Create, FileAccess.Write,FileShare.None, 1024*1024, useAsync: false);
+				await file.CopyToAsync(fileStream);
+				await fileStream.FlushAsync();
+
+
+            }
 			return Ok();
 		}
 	}

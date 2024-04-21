@@ -12,7 +12,7 @@ using OmetaEticaretAPI.Persistence.Contexts;
 namespace OmetaEticaretAPI.Persistence.Migrations
 {
     [DbContext(typeof(ECommerceAPIDbContext))]
-    [Migration("20240312152438_mig-1")]
+    [Migration("20240328192354_mig-1")]
     partial class mig1
     {
         /// <inheritdoc />

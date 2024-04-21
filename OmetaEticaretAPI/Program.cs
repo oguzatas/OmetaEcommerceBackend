@@ -8,8 +8,11 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddPersistenceServices();
-builder.Services.AddCors(options => options.AddDefaultPolicy(policy =>
-policy.AllowAnyHeader().AllowAnyMethod()));
+builder.Services.AddCors(options =>
+    options.AddDefaultPolicy(policy =>
+        policy.AllowAnyHeader()
+              .AllowAnyMethod()
+              .WithOrigins("http://localhost:4200")));
 
 // fluentValidation+ deactivating the default filter 
 builder.Services.AddControllers(options => options.Filters.Add<ValidationFilter>())
@@ -30,6 +33,8 @@ if (app.Environment.IsDevelopment())
 	app.UseSwagger();
 	app.UseSwaggerUI();
 }
+
+app.UseStaticFiles();
 app.UseCors();
 app.UseHttpsRedirection();
 
@@ -38,3 +43,4 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+

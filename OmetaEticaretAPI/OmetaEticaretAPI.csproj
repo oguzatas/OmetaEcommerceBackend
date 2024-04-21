@@ -25,4 +25,8 @@
     <ProjectReference Include="..\OmetaEticaretAPI.Persistence\OmetaEticaretAPI.Persistence.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
 </Project>
