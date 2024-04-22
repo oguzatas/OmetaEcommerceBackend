@@ -1,5 +1,6 @@
 using FluentValidation.AspNetCore;
 using OmetaEticaretAPI.Infrastructure.Filters;
+using OmetaEticaretAPI.Infrastructure;
 using OmetaEticaretAPI.Persistence;
 using OmetaETicaretAPI.Application.Validations;
 
@@ -8,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddPersistenceServices();
+builder.Services.AddInfrastructureServices();
 builder.Services.AddCors(options =>
     options.AddDefaultPolicy(policy =>
         policy.AllowAnyHeader()
