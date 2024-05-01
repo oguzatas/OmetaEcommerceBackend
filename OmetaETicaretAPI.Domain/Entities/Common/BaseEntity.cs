@@ -12,7 +12,7 @@ namespace OmetaETicaretAPI.Domain.Entities
 
 		public DateTime CreateDate { get; set; } = DateTime.Now;
 
-		public DateTime ChangeDate { get; set; }
+		virtual public DateTime ChangeDate { get; set; }
 
 
 	}

@@ -6,6 +6,7 @@ using OmetaEticaretAPI.Persistence.Repositories;
 using OmetaETicaretAPI.Application.Abstractions;
 using OmetaETicaretAPI.Application.Repositories;
 using OmetaETicaretAPI.Application.Repositories.Customer;
+using OmetaETicaretAPI.Application.Repositories.ProductImageFile;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,8 +31,18 @@ namespace OmetaEticaretAPI.Persistence
 			services.AddScoped<IProductReadRepository, ProductReadRepository>();
 			services.AddScoped<IProductWriteRepository, ProductWriteRepository>();
 			services.AddScoped<IProductService, ProductService>();
+			services.AddScoped<IProductImageFileReadRepository, ProductImageFileReadRepository>();
+			services.AddScoped<IProductImageFileWriteRepository, ProductImageFileWriteRepository>();
+            services.AddScoped<IFileReadRepository, FileReadRepository>();
+			services.AddScoped<IFileWriteRepository, FileWriteRepository>();
+			services.AddScoped<IInvoiceFileReadRepository, InvoiceFileReadRepository>();
+			services.AddScoped<IInvoiceFileWriteRepository, InvoiceFileWriteRepository>();
 
 
-		}
-	}
+
+
+
+
+        }
+    }
 }

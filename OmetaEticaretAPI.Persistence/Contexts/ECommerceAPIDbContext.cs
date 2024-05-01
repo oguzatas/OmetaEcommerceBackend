@@ -20,6 +20,12 @@ namespace OmetaEticaretAPI.Persistence.Contexts
         public DbSet<Order> Orders { get; set; }
         public DbSet<Customer> Customers { get; set; }
 
+        public DbSet<OmetaETicaretAPI.Domain.Entities.File> Files { get; set; }
+
+		public DbSet<InvoiceFile> InvoiceFiles { get; set; }
+
+		public DbSet<ProductImageFile> ProductImageFiles { get; set; }
+
 		// interceptor
 		public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
 		{

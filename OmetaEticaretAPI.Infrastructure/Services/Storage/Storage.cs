@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using OmetaEticaretAPI.Infrastructure.StaticServices;
+﻿using OmetaEticaretAPI.Infrastructure.StaticServices;
 
 using System;
 using System.Collections.Generic;
@@ -8,32 +6,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OmetaEticaretAPI.Infrastructure.Services
+namespace OmetaEticaretAPI.Infrastructure.Services.Storage
 {
-    public class FileService 
+    public class Storage
     {
-
-         async Task<string> FileRenameAsync(string path, string fileName, bool first = true)
+        protected delegate bool HasFile(string pathOrContainerName, string fileName);
+        protected async Task<string> FileRenameAsync(string pathOrContainerName, string fileName, HasFile hasFileMethod, bool first = true)
         {
-            await Task.Run(async () =>
+            string newFileName = await Task.Run<string>(async () =>
             {
                 string extension = Path.GetExtension(fileName);
-                
                 string newFileName = string.Empty;
-
-                if(first)
+                if (first)
                 {
                     string oldName = Path.GetFileNameWithoutExtension(fileName);
-                     newFileName = $"{NameOperations.CharacterRegulatory(oldName)}{extension}";
+                    newFileName = $"{NameOperations.CharacterRegulatory(oldName)}{extension}";
                 }
                 else
                 {
                     newFileName = fileName;
                     int indexNo1 = newFileName.IndexOf("-");
-                    if(indexNo1 == -1)
-                    {
+                    if (indexNo1 == -1)
                         newFileName = $"{Path.GetFileNameWithoutExtension(newFileName)}-2{extension}";
-                    }
                     else
                     {
                         int lastIndex = 0;
@@ -41,57 +35,36 @@ namespace OmetaEticaretAPI.Infrastructure.Services
                         {
                             lastIndex = indexNo1;
                             indexNo1 = newFileName.IndexOf("-", indexNo1 + 1);
-                            if(indexNo1 == -1)
+                            if (indexNo1 == -1)
                             {
                                 indexNo1 = lastIndex;
                                 break;
                             }
                         }
 
-                      
+                        int indexNo2 = newFileName.IndexOf(".");
+                        string fileNo = newFileName.Substring(indexNo1 + 1, indexNo2 - indexNo1 - 1);
 
-                        int indexNo2 = newFileName.IndexOf("-");
-                        string fileNo = newFileName.Substring(indexNo1 + 1, indexNo2 - indexNo1 -1);
-                        
-                        if(int.TryParse(fileNo, out int _fileNo))
+                        if (int.TryParse(fileNo, out int _fileNo))
                         {
-                            
                             _fileNo++;
                             newFileName = newFileName.Remove(indexNo1 + 1, indexNo2 - indexNo1 - 1)
-                            .Insert(indexNo1 + 1, _fileNo.ToString());
+                                                .Insert(indexNo1 + 1, _fileNo.ToString());
                         }
                         else
-                        {
                             newFileName = $"{Path.GetFileNameWithoutExtension(newFileName)}-2{extension}";
-                        }
-                        
-                   
 
-                       
                     }
                 }
 
-
-
-                if(File.Exists($"{path}\\{newFileName}"))
-                {
-                   return await FileRenameAsync(path, newFileName , false);
-                }
+                //if (File.Exists($"{path}\\{newFileName}"))
+                if (hasFileMethod(pathOrContainerName, newFileName))
+                    return await FileRenameAsync(pathOrContainerName, newFileName, hasFileMethod, false);
                 else
-                {
                     return newFileName;
-
-                    
-                }
-
-                return newFileName;
             });
 
-            return "";
-        }  
-        
-       
+            return newFileName;
+        }
     }
 }
-
-// TODO FileService configuration

@@ -3,6 +3,7 @@ using OmetaEticaretAPI.Infrastructure.Filters;
 using OmetaEticaretAPI.Infrastructure;
 using OmetaEticaretAPI.Persistence;
 using OmetaETicaretAPI.Application.Validations;
+using OmetaEticaretAPI.Infrastructure.Services.Storage.Local;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddPersistenceServices();
 builder.Services.AddInfrastructureServices();
+builder.Services.AddStorage<LocalStorage>();
 builder.Services.AddCors(options =>
     options.AddDefaultPolicy(policy =>
         policy.AllowAnyHeader()
