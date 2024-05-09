@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace OmetaETicaretAPI.Domain.Entities
 {
-    public class ProductImageFile : File
+    public class Menu : BaseEntity
     {
-        public bool Showcase { get; set; }
-        public ICollection<Product> Products { get; set; }
+        public string Name { get; set; }
+
+        public ICollection<Endpoint> Endpoints { get; set; }
     }
 }

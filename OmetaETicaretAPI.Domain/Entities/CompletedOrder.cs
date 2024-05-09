@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace OmetaETicaretAPI.Domain.Entities
 {
-    public class ProductImageFile : File
+    internal class CompletedOrder
     {
-        public bool Showcase { get; set; }
-        public ICollection<Product> Products { get; set; }
     }
 }
