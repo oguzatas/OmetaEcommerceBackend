@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Abstractions\Token\" />
     <Folder Include="Services\" />
   </ItemGroup>
 

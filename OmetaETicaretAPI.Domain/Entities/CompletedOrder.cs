@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace OmetaETicaretAPI.Domain.Entities
 {
-    internal class CompletedOrder
+    public class CompletedOrder : BaseEntity
     {
+        public Guid OrderId { get; set; }
+
+        public Order Order { get; set; }
     }
 }
