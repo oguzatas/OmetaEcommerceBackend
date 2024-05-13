@@ -10,6 +10,7 @@
     <PackageReference Include="FluentValidation" Version="11.9.0" />
     <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.9.0" />
+    <PackageReference Include="MediatR" Version="12.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.14" />
   </ItemGroup>
 
@@ -19,13 +20,29 @@
 
   <ItemGroup>
     <Folder Include="Abstractions\Token\" />
-    <Folder Include="Features\Commands\AppUser\" />
-    <Folder Include="Features\Commands\AuthorizationEndPoint\" />
-    <Folder Include="Features\Commands\Basket\" />
-    <Folder Include="Features\Commands\Role\" />
-    <Folder Include="Features\Commands\ProductImageFile\" />
-    <Folder Include="Features\Commands\Product\" />
-    <Folder Include="Features\Commands\Order\" />
+    <Folder Include="Features\Commands\AppUser\CreateUser\" />
+    <Folder Include="Features\Commands\AppUser\FacebookLogin\" />
+    <Folder Include="Features\Commands\AppUser\GoogleLogin\" />
+    <Folder Include="Features\Commands\AppUser\VerifyResetToken\" />
+    <Folder Include="Features\Commands\AppUser\UpdatePassword\" />
+    <Folder Include="Features\Commands\AppUser\RefreshTokenLogin\" />
+    <Folder Include="Features\Commands\AppUser\PasswordReset\" />
+    <Folder Include="Features\Commands\AuthorizationEndPoint\AssignRoleEndPoint\" />
+    <Folder Include="Features\Commands\Basket\AddItemToBasket\" />
+    <Folder Include="Features\Commands\Basket\UpdateQuantity\" />
+    <Folder Include="Features\Commands\Basket\RemoveBasketItem\" />
+    <Folder Include="Features\Commands\Order\CompleteOrder\" />
+    <Folder Include="Features\Commands\Order\CreateOrder\" />
+    <Folder Include="Features\Commands\ProductImageFile\ChangeShowcaseImage\" />
+    <Folder Include="Features\Commands\ProductImageFile\UploadProductImage\" />
+    <Folder Include="Features\Commands\ProductImageFile\RemoveProductImage\" />
+    <Folder Include="Features\Commands\Product\CreateProduct\" />
+    <Folder Include="Features\Commands\Product\UpdateStockQrCodeToProduct\" />
+    <Folder Include="Features\Commands\Product\UpdateProduct\" />
+    <Folder Include="Features\Commands\Product\RemoveProduct\" />
+    <Folder Include="Features\Commands\Role\CreateRole\" />
+    <Folder Include="Features\Commands\Role\DeleteRole\" />
+    <Folder Include="Features\Commands\Role\UpdateRole\" />
     <Folder Include="Features\Queries\" />
     <Folder Include="Helpers\" />
     <Folder Include="Services\" />
