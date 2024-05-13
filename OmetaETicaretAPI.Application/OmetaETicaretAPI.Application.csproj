@@ -19,6 +19,15 @@
 
   <ItemGroup>
     <Folder Include="Abstractions\Token\" />
+    <Folder Include="Features\Commands\AppUser\" />
+    <Folder Include="Features\Commands\AuthorizationEndPoint\" />
+    <Folder Include="Features\Commands\Basket\" />
+    <Folder Include="Features\Commands\Role\" />
+    <Folder Include="Features\Commands\ProductImageFile\" />
+    <Folder Include="Features\Commands\Product\" />
+    <Folder Include="Features\Commands\Order\" />
+    <Folder Include="Features\Queries\" />
+    <Folder Include="Helpers\" />
     <Folder Include="Services\" />
   </ItemGroup>
 
