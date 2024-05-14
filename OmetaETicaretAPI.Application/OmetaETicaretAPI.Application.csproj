@@ -20,8 +20,8 @@
 
   <ItemGroup>
     <Folder Include="Abstractions\Token\" />
-    <Folder Include="Helpers\" />
     <Folder Include="Services\" />
+    <Folder Include="ViewModels\Baskets\" />
   </ItemGroup>
 
 </Project>
