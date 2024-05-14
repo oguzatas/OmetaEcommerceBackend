@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OmetaETicaretAPI.Application.Features.Commands.AppUser.UpdatePassword
+namespace OmetaETicaretAPI.Application.Features.Commands.Basket.AddItemToBasket
 {
-    public class UpdatePasswordCommandResponse
+    public class AddItemToBasketCommandResponse
     {
     }
 }

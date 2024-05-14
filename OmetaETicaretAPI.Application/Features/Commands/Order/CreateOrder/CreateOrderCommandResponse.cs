@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OmetaETicaretAPI.Application.Features.Commands.AppUser.UpdatePassword
+namespace OmetaETicaretAPI.Application.Features.Commands.Order.CreateOrder
 {
-    public class UpdatePasswordCommandResponse
+    public class CreateOrderCommandResponse
     {
     }
 }

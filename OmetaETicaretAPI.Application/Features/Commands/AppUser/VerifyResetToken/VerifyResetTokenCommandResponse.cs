@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace OmetaETicaretAPI.Application.Features.Commands.AppUser.VerifyResetToken
 {
-    internal class VerifyResetTokenCommandResponse
+    public class VerifyResetTokenCommandResponse
     {
+        public bool State { get; set; }
     }
 }

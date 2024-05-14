@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MediatR;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace OmetaETicaretAPI.Application.Features.Commands.AppUser.RefreshTokenLogin
 {
-    internal class RefreshTokenLoginCommandRequest
+    public class RefreshTokenLoginCommandRequest : IRequest<RefreshTokenLoginCommandResponse>
     {
+        public string RefreshToken { get; set; }
     }
 }

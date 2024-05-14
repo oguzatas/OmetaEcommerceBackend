@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OmetaETicaretAPI.Application.Features.Commands.AppUser.UpdatePassword
+namespace OmetaETicaretAPI.Application.Features.Commands.Product.UpdateProduct
 {
-    public class UpdatePasswordCommandResponse
+    public class UpdateProductCommandResponse
     {
     }
 }
