@@ -20,13 +20,10 @@
 
   <ItemGroup>
     <Folder Include="Abstractions\Token\" />
-    <Folder Include="Features\Commands\ProductImageFile\ChangeShowcaseImage\" />
-    <Folder Include="Features\Commands\ProductImageFile\UploadProductImage\" />
-    <Folder Include="Features\Commands\ProductImageFile\RemoveProductImage\" />
-    <Folder Include="Features\Commands\Role\CreateRole\" />
-    <Folder Include="Features\Commands\Role\DeleteRole\" />
-    <Folder Include="Features\Commands\Role\UpdateRole\" />
-    <Folder Include="Features\Queries\" />
+    <Folder Include="Features\Queries\Order\GetOrderById\" />
+    <Folder Include="Features\Queries\Role\" />
+    <Folder Include="Features\Queries\ProductImageFile\" />
+    <Folder Include="Features\Queries\Product\" />
     <Folder Include="Helpers\" />
     <Folder Include="Services\" />
   </ItemGroup>
