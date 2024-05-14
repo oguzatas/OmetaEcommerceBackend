@@ -20,10 +20,6 @@
 
   <ItemGroup>
     <Folder Include="Abstractions\Token\" />
-    <Folder Include="Features\Queries\Order\GetOrderById\" />
-    <Folder Include="Features\Queries\Role\" />
-    <Folder Include="Features\Queries\ProductImageFile\" />
-    <Folder Include="Features\Queries\Product\" />
     <Folder Include="Helpers\" />
     <Folder Include="Services\" />
   </ItemGroup>
