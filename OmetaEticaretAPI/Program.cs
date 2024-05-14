@@ -2,8 +2,8 @@ using FluentValidation.AspNetCore;
 using OmetaEticaretAPI.Infrastructure.Filters;
 using OmetaEticaretAPI.Infrastructure;
 using OmetaEticaretAPI.Persistence;
-using OmetaETicaretAPI.Application.Validations;
 using OmetaEticaretAPI.Infrastructure.Services.Storage.Local;
+using OmetaETicaretAPI.Application.Validatiors.Products;
 
 var builder = WebApplication.CreateBuilder(args);
 
