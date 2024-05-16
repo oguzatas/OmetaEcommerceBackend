@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using QRCoder;
 
-namespace OmetaEticaretAPI.Infrastructure
+namespace OmetaEticaretAPI.Infrastructure.Services
 {
     public class QRCodeService : IQRCodeService
     {

@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using OmetaETicaretAPI.Domain.Entities;
 
-namespace OmetaETicaretAPI.Application.Repositories.Endpoint
+
+namespace OmetaETicaretAPI.Application.Repositories
 {
     public interface IEndpointReadRepository : IReadRepository<Endpoint>
     {
