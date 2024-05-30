@@ -28,7 +28,7 @@ namespace OmetaETicaretAPI.Application.Features.Commands.Product.UpdateProduct
             Domain.Entities.Product product = await _productReadRepository.GetByIdAsync(request.Id);
             product.Stock = request.Stock;
             product.Name = request.Name;
-            product.Price = request.Price;
+            product.Price = (long)request.Price;
             await _productWriteRepository.SaveAsync();
             _logger.LogInformation("Product güncellendi...");
             return new();

@@ -13,12 +13,19 @@ namespace OmetaEticaretAPI.Persistence
 		{
 			get
 			{
-				ConfigurationManager configurationManager = new();
-				configurationManager.SetBasePath(Path.Combine(Directory.GetCurrentDirectory(), "../../Presentation/OmetaEticaretAPI"));
-				configurationManager.AddJsonFile("appsettings.json");
+                ConfigurationManager configurationManager = new();
+                try
+                {
+                    configurationManager.SetBasePath(Path.Combine(Directory.GetCurrentDirectory(), "../../Presentation/OmetaETicaretAPI.API"));
+                    configurationManager.AddJsonFile("appsettings.json");
+                }
+                catch
+                {
+                    configurationManager.AddJsonFile("appsettings.Production.json");
+                }
 
-				return configurationManager.GetConnectionString("PostgreSQL");
-			}
+                return configurationManager.GetConnectionString("PostgreSQL");
+            }
 		}
 	}
 }

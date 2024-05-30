@@ -33,8 +33,8 @@ namespace OmetaETicaretAPI.Application.Features.Queries.Product.GetAllProduct
                     p.Name,
                     p.Stock,
                     p.Price,
-                    p.CreatedDate,
-                    p.UpdatedDate,
+                    p.CreateDate,
+                    p.ChangeDate,
                     p.ProductImageFiles
                 }).ToList();
 

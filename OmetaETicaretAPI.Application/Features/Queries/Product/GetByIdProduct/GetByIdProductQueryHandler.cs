@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using P = OmetaETicaretAPI.Domain.Entities;
 
 namespace OmetaETicaretAPI.Application.Features.Queries.Product.GetByIdProduct
 {

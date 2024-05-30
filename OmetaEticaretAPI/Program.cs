@@ -26,7 +26,7 @@ using Serilog.Events;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
+builder.Services.AddHttpClient();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddPersistenceServices();
 builder.Services.AddInfrastructureServices();
@@ -59,7 +59,7 @@ Logger log = new LoggerConfiguration()
     .MinimumLevel.Information()
     .CreateLogger();
 
-Log.Logger = log;
+builder.Host.UseSerilog(log);
 
 builder.Services.AddHttpLogging(logging =>
 {
