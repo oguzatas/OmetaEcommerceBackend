@@ -1,4 +1,5 @@
-﻿using OmetaETicaretAPI.Application.Repositories.ProductImageFile;
+﻿using Microsoft.EntityFrameworkCore;
+using OmetaETicaretAPI.Application.Repositories.ProductImageFile;
 using System;
 using System.Collections.Generic;
 using System.Linq;

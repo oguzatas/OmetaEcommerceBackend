@@ -1,4 +1,6 @@
 ﻿using OmetaETicaretAPI.Application.Abstractions.Services.Auth;
+using OmetaETicaretAPI.Application.ViewModels.Baskets;
+using OmetaETicaretAPI.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,9 +9,12 @@ using System.Threading.Tasks;
 
 namespace OmetaETicaretAPI.Application.Abstractions.Services
 {
-    public interface IAuthService : IExternalAuthentication, IInternalAuthentication
+    public interface IBasketService
     {
-        Task PasswordResetAsnyc(string email);
-        Task<bool> VerifyResetTokenAsync(string resetToken, string userId);
+        public Task<List<BasketItem>> GetBasketItemsAsync();
+        public Task AddItemToBasketAsync(VM_Create_BasketItem basketItem);
+        public Task UpdateQuantityAsync(VM_Update_BasketItem basketItem);
+        public Task RemoveBasketItemAsync(string basketItemId);
+        public Basket? GetUserActiveBasket { get; }
     }
 }

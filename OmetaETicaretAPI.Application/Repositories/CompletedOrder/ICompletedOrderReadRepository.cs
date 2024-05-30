@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using OmetaETicaretAPI.Domain.Entities;
 
 
-namespace OmetaETicaretAPI.Application.Repositories.CompletedOrder
+namespace OmetaETicaretAPI.Application.Repositories
 {
     public interface ICompletedOrderReadRepository : IReadRepository<CompletedOrder>
     {

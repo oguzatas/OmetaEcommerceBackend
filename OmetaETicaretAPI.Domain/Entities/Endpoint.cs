@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace OmetaETicaretAPI.Domain.Entities
 {
     public class Endpoint : BaseEntity

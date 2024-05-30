@@ -9,6 +9,6 @@ namespace OmetaETicaretAPI.Application.Abstractions.Services.Configurations
 {
     public interface IApplicationService
     {
-        List<Menu> GetAuthorizeDefinitionEndpoints(Type type);
+        List<DTOs.Configuration.Menu> GetAuthorizeDefinitionEndpoints(Type type);
     }
 }

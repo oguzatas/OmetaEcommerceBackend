@@ -3,10 +3,14 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using OmetaEticaretAPI.Persistence.Contexts;
 using OmetaEticaretAPI.Persistence.Repositories;
+using OmetaEticaretAPI.Persistence.Services;
 using OmetaETicaretAPI.Application.Abstractions;
+using OmetaETicaretAPI.Application.Abstractions.Services.Auth;
+using OmetaETicaretAPI.Application.Abstractions.Services;
 using OmetaETicaretAPI.Application.Repositories;
 using OmetaETicaretAPI.Application.Repositories.Customer;
 using OmetaETicaretAPI.Application.Repositories.ProductImageFile;
+using OmetaETicaretAPI.Domain.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,34 +19,54 @@ using System.Threading.Tasks;
 
 namespace OmetaEticaretAPI.Persistence
 {
-	public static class ServiceRegistration
+    public static class ServiceRegistration
 	{
-		public static void AddPersistenceServices(this IServiceCollection services)
-		{
-			
+        public static void AddPersistenceServices(this IServiceCollection services)
+        {
+            services.AddDbContext<ECommerceAPIDbContext>(options => options.UseNpgsql(Configuration.ConnectionString));
+            services.AddIdentity<AppUser, AppRole>(options =>
+            {
+                options.Password.RequiredLength = 3;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireDigit = false;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireUppercase = false;
+            }).AddEntityFrameworkStores<ECommerceAPIDbContext>()
+            .AddDefaultTokenProviders();
 
-
-			services.AddDbContext<ECommerceAPIDbContext>(options => options.UseNpgsql("User ID=postgres;Password=12345;Host=localhost;Port=5432;Database=OmetaDB;Pooling=true;Connection Lifetime=0"));
-
-			services.AddScoped<ICustomerWriteRepository, CustomerWriteRepository>();
-			services.AddScoped<ICustomerReadRepository, CustomerReadRepository>();
-			services.AddScoped<IOrderReadRepository, OrderReadRepository>();
-			services.AddScoped<IOrderWriteRepository, OrderWriteRepository>();
-			services.AddScoped<IProductReadRepository, ProductReadRepository>();
-			services.AddScoped<IProductWriteRepository, ProductWriteRepository>();
-			services.AddScoped<IProductService, ProductService>();
-			services.AddScoped<IProductImageFileReadRepository, ProductImageFileReadRepository>();
-			services.AddScoped<IProductImageFileWriteRepository, ProductImageFileWriteRepository>();
+            services.AddScoped<ICustomerReadRepository, CustomerReadRepository>();
+            services.AddScoped<ICustomerWriteRepository, CustomerWriteRepository>();
+            services.AddScoped<IOrderReadRepository, OrderReadRepository>();
+            services.AddScoped<IOrderWriteRepository, OrderWriteRepository>();
+            services.AddScoped<IProductReadRepository, ProductReadRepository>();
+            services.AddScoped<IProductWriteRepository, ProductWriteRepository>();
             services.AddScoped<IFileReadRepository, FileReadRepository>();
-			services.AddScoped<IFileWriteRepository, FileWriteRepository>();
-			services.AddScoped<IInvoiceFileReadRepository, InvoiceFileReadRepository>();
-			services.AddScoped<IInvoiceFileWriteRepository, InvoiceFileWriteRepository>();
+            services.AddScoped<IFileWriteRepository, FileWriteRepository>();
+            services.AddScoped<IProductImageFileReadRepository, ProductImageFileReadRepository>();
+            services.AddScoped<IProductImageFileWriteRepository, ProductImageFileWriteRepository>();
+            services.AddScoped<IInvoiceFileReadRepository, InvoiceFileReadRepository>();
+            services.AddScoped<IInvoiceFileWriteRepository, InvoiceFileWriteRepository>();
+            services.AddScoped<IBasketItemReadRepository, BasketItemReadRepository>();
+            services.AddScoped<IBasketItemWriteRepository, BasketItemWriteRepository>();
+            services.AddScoped<IBasketReadRepository, BasketReadRepository>();
+            services.AddScoped<IBasketWriteRepository, BasketWriteRepository>();
+            services.AddScoped<ICompletedOrderReadRepository, CompletedOrderReadRepository>();
+            services.AddScoped<ICompletedOrderWriteRepository, CompletedOrderWriteRepository>();
+            services.AddScoped<IEndpointReadRepository, EndpointReadRepository>();
+            services.AddScoped<IEndpointWriteRepository, EndpointWriteRepository>();
+            services.AddScoped<IMenuReadRepository, MenuReadRepository>();
+            services.AddScoped<IMenuWriteRepository, MenuWriteRepository>();
 
 
-
-
-
-
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IAuthService, AuthService>();
+            services.AddScoped<IExternalAuthentication, AuthService>();
+            services.AddScoped<IInternalAuthentication, AuthService>();
+            services.AddScoped<IBasketService, BasketService>();
+            services.AddScoped<IOrderService, OrderService>();
+            services.AddScoped<IRoleService, RoleService>();
+            services.AddScoped<IAuthorizationEndpointService, AuthorizationEndpointService>();
+            services.AddScoped<IProductService, ProductService>();
         }
     }
 }

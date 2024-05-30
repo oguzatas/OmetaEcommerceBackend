@@ -16,6 +16,8 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Serilog" Version="3.1.1" />
+    <PackageReference Include="Serilog.Sinks.PostgreSQL" Version="2.3.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
@@ -23,9 +25,11 @@
     <ProjectReference Include="..\OmetaETicaretAPI.Application\OmetaETicaretAPI.Application.csproj" />
     <ProjectReference Include="..\OmetaEticaretAPI.Infrastructure\OmetaEticaretAPI.Infrastructure.csproj" />
     <ProjectReference Include="..\OmetaEticaretAPI.Persistence\OmetaEticaretAPI.Persistence.csproj" />
+    <ProjectReference Include="..\OmetaEticaretAPI.SignalR\OmetaEticaretAPI.SignalR.csproj" />
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Configurations\ColumnWriters\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 

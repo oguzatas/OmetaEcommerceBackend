@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using OmetaETicaretAPI.Application.Abstractions.Services.Configurations;
 using OmetaETicaretAPI.Application.CustomAttributes;
 using OmetaETicaretAPI.Application.Enums;
+using OmetaETicaretAPI.Application.DTOs.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -44,7 +45,7 @@ namespace OmetaEticaretAPI.Infrastructure.Services.Configurations
                                 else
                                     menu = menus.FirstOrDefault(m => m.Name == authorizeDefinitionAttribute.Menu);
 
-                                Application.DTOs.Configuration.Action _action = new()
+                                OmetaETicaretAPI.Application.DTOs.Configuration.Action _action = new()
                                 {
                                     ActionType = Enum.GetName(typeof(ActionType), authorizeDefinitionAttribute.ActionType),
                                     Definition = authorizeDefinitionAttribute.Definition

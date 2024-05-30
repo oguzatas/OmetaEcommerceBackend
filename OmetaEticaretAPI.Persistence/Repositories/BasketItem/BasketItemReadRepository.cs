@@ -1,4 +1,4 @@
-﻿using OmetaETicaretAPI.Application.Repositories.BasketItem;
+﻿using OmetaETicaretAPI.Application.Repositories;
 using OmetaETicaretAPI.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -11,7 +11,7 @@ namespace OmetaEticaretAPI.Persistence.Repositories
 {
     public class BasketItemReadRepository : ReadRepository<BasketItem>, IBasketItemReadRepository
     {
-        public BasketItemReadRepository(ETicaretAPIDbContext context) : base(context)
+        public BasketItemReadRepository(ECommerceAPIDbContext context) : base(context)
         {
         }
     }

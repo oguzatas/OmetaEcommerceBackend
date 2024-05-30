@@ -9,7 +9,7 @@ namespace OmetaETicaretAPI.Application.Abstractions.Storage
 {
     public interface IStorage
     {
-        Task<List<(string fileName, string pathOrContainer)>> UploadAsync(string pathOrContainer, IFormFileCollection files);
+        Task<List<(string fileName, string pathOrContainerName)>> UploadAsync(string pathOrContainerName, IFormFileCollection files);
         Task DeleteAsync(string pathOrContainer,string fileName);
 
         List<string> GetFiles(string pathOrContainer);

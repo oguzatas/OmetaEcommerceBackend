@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace OmetaETicaretAPI.Application.Abstractions.Storage
 {
-    public interface IStorageService
+    public interface IStorageService : IStorage
     {
+        public string StorageName { get; }
     }
 }

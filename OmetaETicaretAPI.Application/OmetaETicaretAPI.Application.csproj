@@ -20,7 +20,6 @@
 
   <ItemGroup>
     <Folder Include="Abstractions\Token\" />
-    <Folder Include="ViewModels\Baskets\" />
   </ItemGroup>
 
 </Project>

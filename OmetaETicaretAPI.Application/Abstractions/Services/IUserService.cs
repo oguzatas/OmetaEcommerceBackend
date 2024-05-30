@@ -1,4 +1,5 @@
-﻿using OmetaETicaretAPI.Domain.Identity;
+﻿using OmetaETicaretAPI.Application.DTOs.User;
+using OmetaETicaretAPI.Domain.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;

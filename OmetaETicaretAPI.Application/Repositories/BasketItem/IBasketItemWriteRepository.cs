@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ETicaretAPI.Domain.Entities;
+using OmetaETicaretAPI.Domain.Entities;
 
-namespace OmetaETicaretAPI.Application.Repositories.BasketItem
+namespace OmetaETicaretAPI.Application.Repositories
 {
     public interface IBasketItemWriteRepository : IWriteRepository<BasketItem>
     {

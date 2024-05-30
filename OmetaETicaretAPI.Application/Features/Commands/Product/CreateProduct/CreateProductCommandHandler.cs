@@ -25,7 +25,7 @@ namespace OmetaETicaretAPI.Application.Features.Commands.Product.CreateProduct
             await _productWriteRepository.AddAsync(new()
             {
                 Name = request.Name,
-                Price = request.Price,
+                Price = (long)request.Price,
                 Stock = request.Stock
             });
             await _productWriteRepository.SaveAsync();

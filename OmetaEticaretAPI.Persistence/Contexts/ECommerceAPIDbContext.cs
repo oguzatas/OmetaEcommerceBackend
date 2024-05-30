@@ -31,6 +31,7 @@ namespace OmetaEticaretAPI.Persistence.Contexts
         public DbSet<Menu> Menus { get; set; }
         public DbSet<Endpoint> Endpoints { get; set; }
 
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<Order>()

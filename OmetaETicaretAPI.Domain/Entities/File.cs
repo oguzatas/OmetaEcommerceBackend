@@ -13,6 +13,7 @@ namespace OmetaETicaretAPI.Domain.Entities
         public string FileName { get; set; }
 
         public string Path { get; set; }
+        public string Storage { get; set; }
         [NotMapped]
         public override DateTime ChangeDate { get => base.ChangeDate; set => base.ChangeDate = value; }
     }

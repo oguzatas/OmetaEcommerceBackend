@@ -1,15 +1,11 @@
 ﻿using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
 using OmetaETicaretAPI.Application.Abstractions.Token;
 using OmetaETicaretAPI.Domain.Identity;
-using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace OmetaEticaretAPI.Infrastructure.Services.Token
@@ -23,9 +19,9 @@ namespace OmetaEticaretAPI.Infrastructure.Services.Token
             _configuration = configuration;
         }
 
-        public Application.DTOs.Token CreateAccessToken(int second, AppUser user)
+        public OmetaETicaretAPI.Application.DTOs.Token CreateAccessToken(int second, AppUser user)
         {
-            Application.DTOs.Token token = new();
+            OmetaETicaretAPI.Application.DTOs.Token token = new();
 
             //Security Key'in simetriğini alıyoruz.
             SymmetricSecurityKey securityKey = new(Encoding.UTF8.GetBytes(_configuration["Token:SecurityKey"]));
