@@ -5,6 +5,7 @@ using OmetaEticaretAPI.Persistence;
 using OmetaEticaretAPI.Infrastructure.Services.Storage.Local;
 using OmetaETicaretAPI.Application.Validatiors.Products;
 using OmetaEticaretAPI.SignalR;
+using OmetaEticaretAPI.SignalR.Hubs;
 using NpgsqlTypes;
 using OmetaEticaretAPI.Configurations.ColumnWriters;
 using Serilog.Sinks.PostgreSQL;
